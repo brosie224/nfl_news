@@ -26,11 +26,7 @@ class NflNews::CLI
         puts @players[input.to_i-1][:news]
         puts "Would you like to view impact [y/n]?"
         yn = gets.strip.downcase
-          if yn = "y"
-            puts @players[input.to_i-1][:impact]
-          else
-            choose
-          end
+            puts @players[input.to_i-1][:impact] if yn == "y"
       elsif input == "list"
         list_players
       elsif input == "exit"
