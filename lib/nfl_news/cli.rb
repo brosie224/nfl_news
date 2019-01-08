@@ -9,6 +9,9 @@ class NflNews::CLI
   def list_players
     puts "Recent NFL Player News:"
     @players = NflNews::Player.recent
+    @players.each.with_index(1) do |player, i|
+      puts " #{i}. #{player.name} - #{player.pos} - #{player.team}"
+    end
   end
     
   def choose
@@ -16,14 +19,12 @@ class NflNews::CLI
     while input != "exit"
       puts "Enter the number of the player whose news you'd like to view, 'list' to re-list players, or 'exit':"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Player 1 news..."
-      when "2"
-        puts "Player 2 news..."
-      when "list"
+      
+      if input.to_i > 0
+        puts @players[input.to_i-1].url
+      elsif input == "list"
         list_players
-      when "exit"
+      elsif input == "exit"
         ""
       else
         puts "Unknown command."

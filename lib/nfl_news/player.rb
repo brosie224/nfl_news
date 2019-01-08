@@ -3,11 +3,6 @@ class NflNews::Player
   attr_accessor :name, :pos, :team, :url
   
   def self.recent
-        puts <<-eos
- 1. Player 1 Name - Position - Team
- 2. Player 1 Name - Position - Team
-    eos
-    
     player_1 = self.new
     player_1.name = "Kerryon Johnson"
     player_1.pos = "RB"
