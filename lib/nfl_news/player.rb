@@ -1,6 +1,6 @@
 class NflNews::Player
   
-  attr_accessor :name, :pos, :team, :url, :news
+  attr_accessor :name, :team, :url, :news, :impact
   
     #go to Rotoworld, scrape players
     #extract player properties
@@ -18,12 +18,12 @@ class NflNews::Player
 
       page.css("div.pb").each do |player|
       name = player.css("div.player a").first.text.strip
-      pos = 
       team = player.css("div.player a").last.text.strip
-      url = 
-      news =
+      url = player.css("div.player a").attr("href").value
+      news = player.css("div.report p").text.strip
+      impact = player.css("div.impact").text.strip
       
-      players << {name: name, pos: pos, team: team, url: url, news: news}
+      players << {name: name, team: team, url: url, news: news, impact: impact}
       end
 
     players
