@@ -1,4 +1,4 @@
-A command line interface for recent NFL player news, using Rotoworld
+A command line interface for recent NFL player news, using Rotoworld.com
 
 User types "nfl-news"
 
