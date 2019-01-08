@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-NflNews::CLI:new.call
+require './lib/nfl_news'
+
+NflNews::CLI.new.call
