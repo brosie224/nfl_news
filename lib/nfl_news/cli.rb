@@ -21,7 +21,7 @@ class NflNews::CLI
       input = gets.strip.downcase
       
       if input.to_i > 0
-        puts @players[input.to_i-1].url
+        puts @players[input.to_i-1]
       elsif input == "list"
         list_players
       elsif input == "exit"
