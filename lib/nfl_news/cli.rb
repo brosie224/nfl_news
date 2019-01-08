@@ -10,8 +10,9 @@ class NflNews::CLI
     puts "Recent NFL Player News:"
     @players = NflNews::Player.scrape_rw
     @players.each.with_index(1) do |player, i|
-      player.each do |key, value| 
-        puts "#{i}. #{value}" if key == :name
+      player.each do |key, value|
+        puts "#{i}. #{value} - #{player[:team]}" if key == :name
+      #  puts "#{value}" if key == :team
       end
     end
   end
