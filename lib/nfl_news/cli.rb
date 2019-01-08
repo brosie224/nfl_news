@@ -8,10 +8,7 @@ class NflNews::CLI
   
   def list_players
     puts "Recent NFL Player News:"
-    puts <<-eos
- 1. Player 1 Name - Position - Team
- 2. Player 1 Name - Position - Team
-    eos
+    @players = NflNews::Player.recent
   end
     
   def choose
