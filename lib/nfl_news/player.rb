@@ -10,7 +10,6 @@ class NflNews::Player
 
   def self.scrape_rw
     page = Nokogiri::HTML(open("http://www.rotoworld.com/playernews/nfl/football-player-news/"))
-    binding.pry
     
       players = []
       
