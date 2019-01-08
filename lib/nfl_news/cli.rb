@@ -12,7 +12,6 @@ class NflNews::CLI
     @players.each.with_index(1) do |player, i|
       player.each do |key, value|
         puts "#{i}. #{value} - #{player[:team]}" if key == :name
-      #  puts "#{value}" if key == :team
       end
     end
   end
@@ -24,7 +23,14 @@ class NflNews::CLI
       input = gets.strip.downcase
       
       if input.to_i > 0
-        puts @players[input.to_i-1]
+        puts ""
+        puts @players[input.to_i-1][:news]
+        puts "Would you like to view impact [y/n]?"
+        yn = gets.strip.downcase
+          if yn = "y"
+            puts @players[input.to_i-1][:impact]
+            puts = ""
+          
       elsif input == "list"
         list_players
       elsif input == "exit"
