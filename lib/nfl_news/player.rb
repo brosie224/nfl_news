@@ -17,11 +17,11 @@ class NflNews::Player
       #iterate over each player
 
       page.css("div.pb").each do |player|
-      name = player.css("div.player a").text
+      name = player.css("div.player a").first.text.strip
       pos = 
-      team = 
+      team = player.css("div.player a").last.text.strip
       url = 
-      news = 
+      news =
       
       players << {name: name, pos: pos, team: team, url: url, news: news}
       end
