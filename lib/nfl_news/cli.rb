@@ -8,7 +8,7 @@ class NflNews::CLI
   
   def list_players
     puts "Recent NFL Player News:"
-    @players = NflNews::Player.recent
+    @players = NflNews::Player.scrape_rw
     @players.each.with_index(1) do |player, i|
       puts " #{i}. #{player.name} - #{player.pos} - #{player.team}"
     end
