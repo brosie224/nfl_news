@@ -17,7 +17,7 @@ class NflNews::CLI
   def choose
     input = nil
     while input != "exit"
-      puts "Enter the number of the player whose news you'd like to view, type 'list' to re-list players, or 'exit':"
+      puts "Enter the number of the player whose news you'd like to view, 'list' to re-list players, or 'exit':"
       input = gets.strip.downcase
       case input
       when "1"
@@ -25,7 +25,11 @@ class NflNews::CLI
       when "2"
         puts "Player 2 news..."
       when "list"
-        call
+        list_players
+      when "exit"
+        ""
+      else
+        puts "Unknown command."
       end
     end
   end
