@@ -24,6 +24,7 @@ class NflNews::CLI
       
       if input.to_i > 0
         puts @players[input.to_i-1][:news]
+        puts "Player page: http://www.rotoworld.com#{@players[input.to_i-1][:url]}"
         puts "Would you like to view impact [y/n]?"
         yn = gets.strip.downcase
             puts @players[input.to_i-1][:impact] if yn == "y"
