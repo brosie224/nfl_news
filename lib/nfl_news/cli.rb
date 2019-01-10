@@ -10,9 +10,7 @@ class NflNews::CLI
     puts "Recent NFL Player News:"
     @players = NflNews::Player.scrape_rw
     @players.each.with_index(1) do |player, i|
-      player.each do |key, value|
-        puts "#{i}. #{value} - #{player[:team]}" if key == :name
-      end
+        puts "#{i}. #{player.name} - #{player.team}"
     end
   end
     
@@ -23,17 +21,17 @@ class NflNews::CLI
       puts "Enter the number of the player whose news you'd like to view, 'list' to re-list players, or 'exit':"
       input = gets.strip.downcase
       
-      if input.to_i > 0
+      if input.to_i.between?(1, @players.length)
         puts ""
-        puts @players[input.to_i-1][:news]
+        puts @players[input.to_i-1].news
         puts ""
-        puts "Player page: http://www.rotoworld.com#{@players[input.to_i-1][:url]}"
+        puts "Player page: http://www.rotoworld.com#{@players[input.to_i-1].url}"
         puts ""
         puts "Would you like to view impact [y/n]?"
         yn = gets.strip.downcase
             if yn == "y"
               puts ""
-              puts @players[input.to_i-1][:impact]
+              puts @players[input.to_i-1].impact
             end
       elsif input == "list"
         list_players

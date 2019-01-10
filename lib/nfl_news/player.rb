@@ -8,13 +8,14 @@ class NflNews::Player
     players = []
 
       page.css("div.pb").each do |player|
-      name = player.css("div.player a").first.text.strip
-      team = player.css("div.player a").last.text.strip
-      url = player.css("div.player a").attr("href").value
-      news = player.css("div.report p").text.strip
-      impact = player.css("div.impact").text.strip
+      new_player = self.new
+      new_player.name = player.css("div.player a").first.text.strip
+      new_player.team = player.css("div.player a").last.text.strip
+      new_player.url = player.css("div.player a").attr("href").value
+      new_player.news = player.css("div.report p").text.strip
+      new_player.impact = player.css("div.impact").text.strip
       
-      players << {name: name, team: team, url: url, news: news, impact: impact}
+      players << new_player
       end
 
     players
